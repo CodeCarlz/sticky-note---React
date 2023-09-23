@@ -37,6 +37,8 @@ main{
 #inputBox{
   flex-grow: 1;
   border-radius: 15px;
+  padding: 0 15px;
+  font-size: 20px;
 }
 
 #saveIcon{
