@@ -1,0 +1,140 @@
+*{
+  box-sizing: border-box;
+  
+}
+
+
+body{
+  height: 100vh;
+  background: linear-gradient(1deg, rgb(41, 26, 26), rgb(225, 178, 83), rgb(245, 209, 146));
+}
+
+#root{
+  margin: 0;
+  padding: 0;
+
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+  /* topContainer */
+.topContainer{
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  height: 3rem;
+  gap: 10px;
+  padding: 0 10px;
+  min-width: 300px;
+}
+
+#inputBox{
+  flex-grow: 1;
+  border-radius: 15px;
+}
+
+#saveIcon{
+  height: 50px;
+  width: 50px;
+}
+
+#btnSave{
+  border-radius: 25px;
+}
+
+.middleContainer{
+  height: 80vh;
+  width: 80vw;
+  min-width: 300px;
+  background-color: rgb(241, 222, 181);
+  border-radius: 1.5rem;
+  display: grid;
+  justify-content: start;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  list-style: none;
+  gap: 10px;
+  padding: 20px;
+  overflow: scroll;
+}
+
+.item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  min-width: 200px;
+  /* overflow: scroll; */
+  background-color: rgb(254, 209, 131);
+  border-radius: 20px;
+  position: relative;
+  /* padding: 5px 15px; */
+}
+
+.item .notesContainer{
+  word-wrap: break-word;
+  text-align: center;
+  max-width: 95%;
+  width: 100%;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 20px;
+  padding: 0 5px;
+  height: 93%;
+  overflow: scroll;
+  border-radius: 10px;
+}
+
+.item .deleteBtn{
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  visibility: hidden;
+}
+
+.item:hover > .deleteBtn{
+  visibility: visible;
+}
+
+.item .editBtn{
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  bottom: 10px;
+  right: 45px;
+  visibility: hidden;
+}
+
+.item:hover > .editBtn{
+  visibility: visible;
+}
+
+.item .notesContainer::-webkit-scrollbar{
+  display: none;
+}
+.middleContainer::-webkit-scrollbar{
+  display: none;
+}
+
+@media screen and (max-width: 1350px) {
+  .middleContainer{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .middleContainer{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 700px) {
+  .middleContainer{
+    grid-template-columns: 1fr;
+  }
+}
