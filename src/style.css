@@ -123,14 +123,20 @@ main{
   display: none;
 }
 
+@media screen and (min-width: 1700px) {
+  .middleContainer{
+    grid-template-columns: repeat(5,1fr);
+  }
+}
+
 @media screen and (max-width: 1350px) {
   .middleContainer{
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media screen and (max-width: 1050px) {
   .middleContainer{
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 @media screen and (max-width: 700px) {
