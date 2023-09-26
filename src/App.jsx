@@ -1,9 +1,10 @@
-import {useState} from 'react'
+import {useState, useRef} from 'react'
 import {FaRegSquarePlus, FaTrashCan,FaFilePen} from "react-icons/fa6"
 import "./style.css"
 import './App.css'
 
 function App() {
+  const inputRef = useRef(0)
   const [items, setItems] = useState(() => {
     const localStorageData = localStorage.getItem('Carlz')
     return localStorageData ? JSON.parse(localStorageData) : []
@@ -22,14 +23,16 @@ function App() {
     const id = items.length ? items[items.length -1].id + 1 : 1;
     const newItem = {id, item: addItem, editable: false}
     const setItemList = [...items, newItem]
-    if(addItem !== ''){
+    if(addItem.trim() !== ''){
       setItems(setItemList)
       setAddItem('')
-     
+      localStorage.setItem("Carlz", JSON.stringify(setItemList))
     }else{
       setAddItem('')
+     alert("Please enter your notes")
+      inputRef.current.focus()
     }
-    localStorage.setItem("Carlz", JSON.stringify(setItemList))
+   
   }
 
   const handleEdit = (id) => {
@@ -37,7 +40,7 @@ function App() {
     setItems(editeList)
   }
 
-  const handleSave = (id) => {
+  const handleEditToggle = (id) => {
     const editedList = items.map((item) =>
       item.id === id ? { ...item, editable: !item.editable } : item
     );
@@ -46,9 +49,7 @@ function App() {
   };
 
   const handleEditContentChange = (id, content) => {
-    const updatedList = items.map((item) =>
-      item.id === id ? { ...item, item: content } : item
-    );
+    const updatedList = items.map((item) => item.id === id  ? { ...item, item: content } : item);
     setItems(updatedList);
   };
 
@@ -59,6 +60,8 @@ function App() {
           id='inputBox' 
           type="text" 
           required
+          placeholder='Enter your notes here'
+          ref={inputRef}
           value={addItem}
           onChange={(e) => setAddItem(e.target.value)}
         />
@@ -68,6 +71,7 @@ function App() {
           onClick={handleAddItems}  
         />
       </form>
+
 
       <ul className='middleContainer'>
         {items.map((item) => (
@@ -82,7 +86,7 @@ function App() {
           className='editBtn'
           onClick={() => {
             if(item.editable){
-              handleSave(item.id)
+              handleEditToggle(item.id)
             }else{
               handleEdit(item.id)
           
