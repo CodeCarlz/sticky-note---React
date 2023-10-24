@@ -1,23 +1,27 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-
-body{
+body {
   height: 100vh;
   /* min-height: 100%; */
   /* min-width: 100vw; */
-  background: linear-gradient(1deg, rgb(41, 26, 26), rgb(225, 178, 83), rgb(245, 209, 146));
+  background: linear-gradient(
+    1deg,
+    rgb(41, 26, 26),
+    rgb(225, 178, 83),
+    rgb(245, 209, 146)
+  );
 }
 
-#root{
+#root {
   margin: 0;
   padding: 0;
 }
 
-main{
+main {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -25,8 +29,8 @@ main{
   gap: 1.1rem;
 }
 
-  /* topContainer */
-.topContainer{
+/* topContainer */
+.topContainer {
   width: 50vw;
   display: flex;
   justify-content: center;
@@ -36,23 +40,23 @@ main{
   min-width: 300px;
 }
 
-#inputBox{
+#inputBox {
   flex-grow: 1;
   border-radius: 15px;
   padding: 0 15px;
   font-size: 20px;
 }
 
-#saveIcon{
+#saveIcon {
   height: 50px;
   width: 50px;
 }
 
-#btnSave{
+#btnSave {
   border-radius: 25px;
 }
 
-.middleContainer{
+.middleContainer {
   height: 80vh;
   width: 80vw;
   min-width: 340px;
@@ -68,7 +72,7 @@ main{
   overflow: scroll;
 }
 
-.item{
+.item {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,12 +85,12 @@ main{
   /* padding: 5px 15px; */
 }
 
-.item .notesContainer{
+.item .notesContainer {
   word-wrap: break-word;
   text-align: center;
   max-width: 95%;
   width: 100%;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 20px;
   padding: 0 5px;
   height: 95%;
@@ -94,7 +98,7 @@ main{
   border-radius: 10px;
 }
 
-.item .deleteBtn{
+.item .deleteBtn {
   height: 25px;
   width: 25px;
   position: absolute;
@@ -103,11 +107,11 @@ main{
   visibility: hidden;
 }
 
-.item:hover > .deleteBtn{
+.item:hover > .deleteBtn {
   visibility: visible;
 }
 
-.item .editBtn{
+.item .editBtn {
   height: 25px;
   width: 25px;
   position: absolute;
@@ -116,19 +120,19 @@ main{
   visibility: hidden;
 }
 
-.item:hover > .editBtn{
+.item:hover > .editBtn {
   visibility: visible;
 }
 
-.item .notesContainer::-webkit-scrollbar{
+.item .notesContainer::-webkit-scrollbar {
   display: none;
 }
-.middleContainer::-webkit-scrollbar{
+.middleContainer::-webkit-scrollbar {
   display: none;
 }
 
-@media  screen and (max-width: 400px) {
-  #root{
+@media screen and (max-width: 400px) {
+  #root {
     width: 100%;
   }
 }
