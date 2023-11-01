@@ -83,6 +83,16 @@ main {
   border-radius: 12px;
   position: relative;
   /* padding: 5px 15px; */
+  transition: all 1.5s ease;
+  opacity: 1;
+  rotate: 0deg;
+}
+
+@starting-style {
+  .item {
+    opacity: 0;
+    rotate: 180deg;
+  }
 }
 
 .item .notesContainer {
